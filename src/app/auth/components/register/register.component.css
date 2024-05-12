@@ -1,0 +1,21 @@
+.auth {
+  background-image: url(../../../../assets/images/bg-1.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.auth .upload-img {
+  border-radius: 50%;
+  font-size: 14px;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.auth .model {
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+/*# sourceMappingURL=register.component.css.map */

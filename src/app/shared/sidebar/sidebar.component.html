@@ -1,0 +1,29 @@
+<div id="sidebar" class="bg-dark-main  sticky">
+    <div class="container-fluid px-0">
+      <div class="row">
+        <div class="text-center my-5  " (click)="isOpened=!isOpened">
+          <img src="../../../assets/images/3.png" alt="" class="w-100" />
+        </div>
+        <div class="px-0">
+          <ul>
+            <ng-container  *ngFor="let item of menu">
+              <li
+             *ngIf="item.isActive"
+              [routerLink]="item.link"
+              routerLinkActive="active-ul"
+              [class]="isOpened?'':'d-flex justify-content-center'"
+              >
+               <a><i [class]="'fa-solid fa-1x' +' '+item.icon"></i>
+                 <span routerLinkActive="text-white" [class]="isOpened?'':'d-none'"
+                 >{{item.text}}</span></a>
+             </li>
+            </ng-container>
+  
+  
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

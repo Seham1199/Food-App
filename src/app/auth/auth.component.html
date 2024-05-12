@@ -1,0 +1,70 @@
+<section class="auth">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center vh-100">
+      <div class="col-md-8">
+        <div class="auth-card">
+          <div class="auth-logo w-50 mx-auto">
+            <img src="../../assets/images/4 4.svg" alt="logo" class="w-100 text-center">
+          </div>
+          <h1>Log In</h1>
+          <p>Welcome Back! Please enter your details</p>
+          <form action="" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+            <!-- Email Input -->
+            <div class="input-group mb-3">
+              <span class="input-group-text " id="basic-addon1"><i class="fa-regular fa-envelope"></i></span>
+              <input formControlName="email" name="email" type="email" class="form-control" a aria-label="email" aria-describedby="basic-addon1" placeholder="Enter your E-mail">
+            </div>
+            <div class="mx-1 valided" *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.touched || loginForm.get('email')?.value.length > 0)">
+              <p *ngIf="loginForm.get('email')?.getError('required')">
+                <i class="fa-solid fa-triangle-exclamation icon-alert"></i>
+                Email is Required</p>
+              <p *ngIf="loginForm.get('email')?.getError('email')">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Email inValid Format</p>
+            </div>
+            <!-- Password Input -->
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+              <input formControlName="password" name="password" [type]="hide? 'password':'text'" class="border-pass form-control"  aria-label="Username" aria-describedby="basic-addon1" placeholder="Password">
+              <span (click)="hide=!hide" class="input-group-text"><i class="fa-solid" [class]="hide? 'fa-eye-slash': 'fa-eye'"></i></span>  
+            </div>
+            <div class="mx-1 valided" *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.touched || loginForm.get('password')?.value.length > 0)">
+              <p *ngIf="loginForm.get('password')?.getError('required')">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                password is Required</p>
+              <p *ngIf="loginForm.get('password')?.getError('pattern')">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Confirm Password Must have capital,small letters,symbols,numbers and pass length(8.16)
+              </p>
+            </div>
+            <div class="links">
+              <a  class="text-dark-gray" [routerLink]="['register']">Register Now?</a>
+              <a  class="text-main" [routerLink]="['forgetPass']">Forgot Password?</a>
+            </div>
+            <button class="primary w-100" type="submit" [disabled]="loginForm.invalid">Login</button>
+          <div class="m-1 valided">
+            <p *ngIf="errMessage"><i class="fa-solid fa-triangle-exclamation"></i>
+              {{errMessage}}</p>
+          </div>  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

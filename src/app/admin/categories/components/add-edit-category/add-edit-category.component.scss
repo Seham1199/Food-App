@@ -1,0 +1,23 @@
+.category-content{
+  .cat-img{
+    width: 28%;
+  }
+    h1{
+        font-size: 25px;
+        font-weight: 700;
+        color: #494949;
+    }
+    .cat-icon{
+      color: #1f9b35;
+    }
+    .mdc-text-field--outlined{
+        --mdc-outlined-text-field-focus-outline-color: #1f9b35 ;
+        --mdc-outlined-text-field-hover-outline-color: #1f9b35 ;
+        transition: 0.3s ease-in-out;
+     
+     .labelIn{
+         color: #1f9b35;
+     }
+    }
+}
+

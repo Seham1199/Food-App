@@ -1,0 +1,214 @@
+<section class="categories">
+    <div class="page-title px-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8 ">
+                    <div class="">
+                        <h1>Recipes <span>item</span></h1>
+                        <p>You can now add your items that any user can order it from<br> the Application and you can edit</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="users-img">
+                        <img src="../../../assets/images/Group 48102127.svg" class="w-50" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="mt-4 table-caption">
+        <div class="d-flex align-items-center justify-content-between pb-4 px-4">
+            <div class="">
+                <h2 class="h4 mb-0">Recipe Table Details</h2>
+                <p>You can check all details</p>
+            </div>
+           <div class="">             
+              <mat-chip-listbox aria-label=" selection"    class="rounded-0">            
+                <mat-chip-option color="close" class="mdc-evolution-chip-set .mdc-evolution-chip" (click)="cellMode()" selected> <mat-icon class="close ">table_view</mat-icon></mat-chip-option>
+                <mat-chip-option color="close"  (click)="tableMode()"><mat-icon class="close">format_list_bulleted</mat-icon></mat-chip-option>
+              </mat-chip-listbox>
+           </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">           
+                    <mat-form-field class="w-100  mdc-text-field--outlined mb-3 px-0" appearance="outline">
+                            <mat-label class="labelIn">Search here...</mat-label>
+                            <input matInput type="text" [(ngModel)]="searchValue" (keyup.enter)="getRecipesData()">
+                            <button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''; getRecipesData()">
+                              <mat-icon class="">close</mat-icon>
+                            </button>               
+                      </mat-form-field>           
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="mdc-text-field--outlined w-100 mb-3 px-0" appearance="outline"> 
+                        <mat-label class="labelIn">Tag</mat-label>
+                        <mat-select [(ngModel)]="tagId" (selectionChange)="getRecipesData()">  
+                            <mat-option value="0">All</mat-option>              
+                          <mat-option *ngFor="let list of listTags" [value]="list.id">{{list.name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="mdc-text-field--outlined w-75 mb-3 px-0" appearance="outline"> 
+                        <mat-label class="labelIn">Categories</mat-label>
+                        <mat-select [(ngModel)]="categoryId" (selectionChange)="getRecipesData()">
+                            <mat-option value="0">All</mat-option>
+                          <mat-option *ngFor="let listCat of listCategories" [value]="listCat.id">{{listCat.name}}</mat-option>                
+                        </mat-select>
+                      </mat-form-field>
+                      
+                </div>
+            </div>
+        </div>
+        
+<div class="container my-4" [class]="isCell==true?'d-block' : 'd-none'">
+    <div class="row g-4">
+        <div class="col-md-4 " *ngFor="let item of listData?.data">
+            <div class="recipe-card bg-warning bg-white border border-1 shadow-sm rounded-3 position-relative overflow-hidden">
+                <div class="layer position-absolute top-0 start-0 w-100 h-100 z-2  rounded-3 shadow-sm d-flex justify-content-center align-items-center">
+                    <div class="px-3 py-2 rounded-3 view-icon me-3" [routerLink]="['view',  item.id]">
+                        <a>
+                            <i class="fa-solid fa-eye  fs-2x "></i>
+                        </a>
+                    </div>
+                    <div class="px-3 py-2 rounded-3 fav-icon" (click)="addToFav(item.id)">
+    
+                        <a>
+                            <i class="fa-solid fa-heart" ></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="price position-absolute top-0 end-0 badge  m-2 z-1">
+                    <span class="">{{item.price | currency}} </span>
+                </div>
+            <div class="recipe-image overflow-hidden">
+                <img [src]="item.imagePath?imgUrl + item.imagePath : emptyImg " class="recipe-cell object-fit-cover w-100 rounded-top-3" alt="">
+            </div>
+            <div class="recipe-caption bg-secondar text-center py-3">
+                <h2 class="mt-1">{{item.name}}</h2>
+                <div class="d-flex justify-content-evenly mt-5">
+                    <span class="time"><i class="fa-regular fa-calendar-days me-2"></i>{{item.creationDate | date:"dd/mm/yyyy"}}</span>
+                    <span class="text-uppercase time"><i class="fa-solid fa-clock me-2"></i>{{item.modificationDate | date:"mm"}} Minutes</span>
+                </div>
+                <p class="text-muted mt-1 desc">{{item.description | trim}}</p>
+            </div>
+        </div>
+        
+    </div>
+    <ng-container *ngIf="listData.length == 0">
+        <div class="col-md-6 mx-auto"  >
+          <app-no-data></app-no-data>
+      </div>
+      </ng-container>
+      <div class="">
+    <mat-paginator #paginator
+    (page)="handlePageEvent($event)"
+    [length]="listData?.totalNumberOfRecords"
+    [pageSize]="pageSize"
+    [pageIndex]="pageNumber"           
+    [pageSizeOptions]="[4, 8, 16 , 20]"
+    aria-label="Select page" class="mdc-text-field--outlined">
+</mat-paginator>
+</div>
+    </div>
+</div>
+
+
+     <div class="" [class]="isCell==true?'d-none':'d-block'">
+            <table class="table table-hover table-bordered text-center border border-1  shadow" >
+                <thead class="">
+                    <th class="py-3">Recipe Name</th>
+                    <th class="py-3">Image</th>
+                    <th class="py-3">Price</th>
+                    <th class="py-3">Description</th>
+                    <th class="py-3">Tag</th>
+                    <th class="py-3">Category</th>
+                    <th class="py-3">Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listData?.data">
+                        <td class="pt-5">{{item.name}}</td>
+                        <td class="">
+                            <img [src]="item.imagePath?imgUrl + item.imagePath : emptyImg " class="recipeImg rounded-circle" alt="">
+                        </td>
+                        <td class="pt-5">{{item.price}}</td>
+                        <td class="pt-5">{{item.description | trim}}</td>
+                        <td class="pt-5">{{item.tag.name}}</td>
+                        <td class="pt-5">
+                           <ng-container *ngIf="item.category.length > 0">
+                              <span *ngFor="let itemCat of item.category">
+                                {{itemCat.name}}
+                              </span>
+                              <ng-container *ngIf="item.category.length == 0">
+                                <span>No Category</span>
+                              </ng-container>                             
+                           </ng-container>                                      
+                        </td>
+            
+                        <td class="pt-4">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_horiz</mat-icon>
+                              </button>
+                              <mat-menu #menu="matMenu"  class="menu-box rounded-4 overflow-hidden">
+                                <button mat-menu-item class="menu-icons px-5" [routerLink]="['view',  item.id]">
+                                  <mat-icon>visibility</mat-icon>
+                                  <span>View</span>
+                                </button>
+                                <button mat-menu-item class="menu-icons px-5 ms-1"  (click)="addToFav(item.id)">
+                                    
+                                    <i class="fa-solid fa-heart me-3  fav"></i>
+                                    <span>favorite</span>
+                                  </button>
+                              </mat-menu>                             
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row" *ngIf="listData.length == 0">
+                <div class="col-md-6 mx-auto">
+                  <app-no-data></app-no-data>
+                </div>
+              </div>
+              <div class="row" *ngIf="listTags?.length == 0">
+                <div class="col-md-6 mx-auto">
+                  <app-no-data></app-no-data>
+                </div>
+              </div>
+              <div>
+          <mat-paginator #paginator
+          (page)="handlePageEvent($event)"
+          [length]="listData?.totalNumberOfRecords"
+          [pageSize]="pageSize"
+          [pageIndex]="pageNumber"           
+          [pageSizeOptions]="[4, 8, 16 , 20]"
+          aria-label="Select page" class="mdc-text-field--outlined">
+</mat-paginator>
+</div>
+        </div> 
+
+
+
+
+
+
+
+
+    </div>
+  </section>
+
+
+
+
+
+

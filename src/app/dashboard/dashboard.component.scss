@@ -1,0 +1,19 @@
+
+.row{
+    margin-right: 0;
+    margin-left: 0;
+    }
+    .opened > div{
+      transition: all .3s ease-in-out;
+    }
+    .sticky{
+        position: sticky;
+      top: 0;
+     z-index: 1;
+    }
+    .m-4{
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    

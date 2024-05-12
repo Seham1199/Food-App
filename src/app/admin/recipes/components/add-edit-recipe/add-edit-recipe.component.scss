@@ -1,0 +1,62 @@
+.add-edit{
+    .recipe-content{
+        background-color: #F0FFEF;
+        padding: 30px 50px;
+        color: #1F263E;
+        border-radius: 8px;
+        h2{
+            font-size: 24px;
+            font-size: 500;
+            span.recipe{
+                font-weight: 600;
+                color: #1f9b35;
+            }
+        }
+        .btn-recipe{
+            .btn-primary{
+                padding: 0.75rem 1.5rem;
+                font-size: 16px; 
+                i{
+                    font-size: 14px;
+                }
+            }
+        }
+       
+    }
+}
+
+.mdc-text-field--outlined{
+    --mdc-outlined-text-field-focus-outline-color: #1f9b35 ;
+    --mdc-outlined-text-field-hover-outline-color: #1f9b35 ;
+    transition: 0.3s ease-in-out;
+ 
+ .labelIn{
+     color: #1f9b35;
+ }
+ }
+ .main-color{
+    color: #1f9b35;
+ }
+.recipe-form{
+    .primary{
+        transition: 0.3s;
+        &:hover{
+            background-color: #F0FFEF;
+            color: #1f9b35;
+            border: 1px solid #1f9b35;
+        }      
+    }
+    .outline-primary{
+        transition: 0.3s;
+        &:hover{
+            background-color: #4AA35A;
+            color: #F0FFEF;
+            opacity: 1;
+        }
+    }
+}
+input{
+    &disabled{
+        cursor: not-allowed;
+    }
+}

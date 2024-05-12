@@ -1,0 +1,95 @@
+
+          <div class="auth-card position-relative">
+            <div class="text-end">
+                <a (click)="onNoClick()" role="button" class="close"><i class="fa-solid fa-xmark-circle  fa-2x"></i></a>
+              </div>
+              <div class="mx-auto w-50"> <img src="../../assets/images/4 4.svg" class="w-100" alt=""></div>
+<div class="px-3">
+    <h1>Change Your Password</h1>
+    <p>Enter Your details Below</p>
+    <form   [formGroup]="resetForm"  (ngSubmit)="onChangePass(resetForm)">   
+           <!-- Old Password Input -->
+<div class="input-group mb-3">
+<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+<input formControlName="oldPassword" name="oldPassword" [type]="hide1? 'password' : 'text' " class="form-control border-pass"  aria-label="oldPassword" aria-describedby="basic-addon1" placeholder="Old Password">
+<span (click)="hide1=!hide1" class="input-group-text border-pass"><i class="fa-solid" [class]="hide1?'fa-eye-slash' : 'fa-eye' "></i></span>  
+</div>
+<div class="mx-1 valided" *ngIf="resetForm.get('oldPassword')?.errors && (resetForm.get('oldPassword')?.touched )">
+<p *ngIf="resetForm.get('oldPassword')?.getError('required')">
+<i class="fa-solid fa-triangle-exclamation"></i>
+Old Password is Required</p>
+<p *ngIf="resetForm.get('oldPassword')?.getError('pattern')">
+<i class="fa-solid fa-triangle-exclamation"></i>
+     Invalid Old Password
+</p>
+</div>
+<!-- New Password Input -->
+<div class="input-group mb-3">
+<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+<input formControlName="newPassword" name="newPassword" [type]="hide2? 'password' : 'text' " class="form-control border-pass"  aria-label="password" aria-describedby="basic-addon1" placeholder="New Password">
+<span (click)="hide2=!hide2" class="input-group-text border-pass"><i class="fa-solid" [class]="hide2?'fa-eye-slash' : 'fa-eye' "></i></span> 
+</div>
+<div class="mx-1 valided" *ngIf="resetForm.get('newPassword')?.errors && (resetForm.get('newPassword')?.touched || resetForm.get('newPassword')?.value.length > 0)">
+<p *ngIf="resetForm.get('newPassword')?.getError('required')">
+<i class="fa-solid fa-triangle-exclamation"></i>
+New Password is Required</p>
+<p *ngIf="resetForm.get('newPassword')?.getError('pattern')">
+<i class="fa-solid fa-triangle-exclamation"></i>
+   Invalid New Password
+</p>
+</div>
+<!-- confirmNewPassword Input -->
+<div class="input-group mb-3">
+<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+<input formControlName="confirmNewPassword" name="confirmNewPassword" [type]="hide3? 'password' : 'text' " class="form-control border-pass"  aria-label="password" aria-describedby="basic-addon1" placeholder="Confirm New Password">
+<span (click)="hide3=!hide3" class="input-group-text border-pass"><i class="fa-solid" [class]="hide3?'fa-eye-slash' : 'fa-eye' "></i></span> 
+</div>
+<div class="mx-1 valided" *ngIf="resetForm.get('confirmNewPassword')?.errors && (resetForm.get('confirmNewPassword')?.touched || resetForm.get('confirmNewPassword')?.value.length > 0)">
+<p *ngIf="resetForm.get('confirmNewPassword')?.getError('required')">
+<i class="fa-solid fa-triangle-exclamation"></i>
+confirmNewPassword is Required</p>
+<p *ngIf="resetForm.get('confirmNewPassword')?.getError('pattern')">
+<i class="fa-solid fa-triangle-exclamation"></i>
+password and confirm password not match
+</p>
+</div>
+<div class="d-flex justify-content-between my-2">
+<button
+type="submit"
+class="outline-primary  m-2 w-50"
+(click)="onNoClick()"
+>
+<i class="fa-solid fa-arrow-left pl-2"></i> Back
+</button>
+<button
+[mat-dialog-close]="resetForm"
+  type="submit"
+  class="primary m-2  w-50"
+>
+Change Password
+</button>
+</div>
+      
+    </form>
+</div>
+
+
+          </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

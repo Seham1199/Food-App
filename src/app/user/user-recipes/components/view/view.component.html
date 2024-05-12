@@ -1,0 +1,130 @@
+<section class="add-edit mt-1">
+    <div class="row">
+        <div class="col-12">
+            <div class="recipe-content d-flex justify-content-between align-items-center">
+                <div class="recipe-caption">
+                    <h2>View the <span class="recipe">Recipe!</span></h2>
+                    <p>you can now fill the meals easily using the table and form ,<br> click here and sill it with the table !</p>
+                </div>
+                <div class="btn-recipe">
+                   <button type="button" class="primary py-2 px-3" routerLink="/dashboard/user/user-recipes">All Recipes <i class="fa-solid fa-arrow-right ps-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="view p-2">
+  <div class="container py-5">
+      <div class="row">
+          
+      <div class="col-md-6 ">
+          <div class="user-img rounded-3 text-end">
+            <img [src]="recipeData?.imagePath?imgUrl + recipeData.imagePath : emptyImg "   class="w-75 rounded-3" alt="user-image">
+             
+          </div>
+      </div>
+          <div class="col-md-6  d-flex align-items-center">
+              <div class="user-caption ">
+                <ul class="">
+                  <li class="pb-2">UserName: <span>{{recipeData.name}}</span></li>
+                  <li class="pb-2">Price: <span>{{recipeData.price | currency}}</span></li>
+                  <li class="pb-2">Description: <span>{{recipeData.description}}</span></li>
+                  <li class="pb-2">Creation Date: <span>{{recipeData.creationDate | date:"dd/mm/yyyy"}}</span></li>
+                  <li class="pb-2">Modification Date: <span>{{recipeData.modificationDate | date:'hh:mm a'}}</span></li>
+                 
+                 
+                </ul>
+              </div>
+          </div>
+          <div class="d-flex justify-content-end gap-2 my-4">
+            <button class="outline-primary" type="button" routerLink="/dashboard/user/user-recipes">Cancel</button>
+            </div>          
+            
+          </div>
+      </div>
+ 
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- <section class="recipe-form mt-5">
+<div class="container">
+
+    <form action="" [formGroup]="recipeForm" (ngSubmit)="onSubmit(recipeForm)">
+        <div class="row">
+           <div class="col-md-10 mx-auto">
+            
+     <div class="input-group mb-3">
+       <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-bell-concierge"></i></span>
+       <input formControlName="name" name="name" type="text" class="form-control" a aria-label="name" aria-describedby="basic-addon1" placeholder="Enter Recipe Name">                
+   </div>
+   <div class="mx-1 valided"  *ngIf="recipeForm.get('name')?.errors && (recipeForm.get('name')?.touched)">
+     <p *ngIf="recipeForm.get('name')?.getError('required')">
+       <i class="fa-solid fa-triangle-exclamation icon-alert"></i>
+      name is Required</p>
+           </div>
+<div class="input-group mb-3">
+<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-coins"></i></span>
+<input formControlName="price" name="price" type="price" class="form-control" a aria-label="price" aria-describedby="basic-addon1" placeholder="Price">
+</div>
+<div class="mx-1 valided" *ngIf="recipeForm.get('price')?.errors && (recipeForm.get('price')?.touched)">
+<p *ngIf="recipeForm.get('price')?.getError('required')">
+  <i class="fa-solid fa-triangle-exclamation icon-alert"></i>
+  price is Required</p>
+</div>
+<div class="input-group mb-3">
+    <span class="input-group-text"><i class="fa-solid fa-audio-description"></i></span>
+    <textarea formControlName="description" type="text" class="form-control" placeholder="Description" ></textarea>
+  </div>
+<div class="w-100 d-flex justify-content-between align-items-center">
+    <div class="col-md-6">
+      <mat-form-field class="mdc-text-field--outlined mb-3 ps-0 w-100" appearance="outline"> 
+        <mat-label class="labelIn">Tag</mat-label>
+        <mat-select formControlName="tagId">  
+          <mat-option *ngFor="let list of listTags" [value]="list.id">{{list.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="mdc-text-field--outlined w-100 mb-3 pe-0" appearance="outline"> 
+          <mat-label class="labelIn">Categories</mat-label>
+          <mat-select formControlName="categoriesIds">
+            <mat-option *ngFor="let listCat of listCategories" [value]="listCat.id">{{listCat.name}}</mat-option>                
+          </mat-select>
+        </mat-form-field>
+      </div>
+</div>
+
+<div>
+    <ngx-dropzone  (change)="onSelect($event)" class="upload-img mx-auto my-1">
+        <ngx-dropzone-label *ngIf="!imgSrc">
+            <i class="fa-solid fa-arrow-up-from-bracket  pb-3"></i>
+              Drag & Drop or <span class="main-color">Choose Image</span> to Upload
+        </ngx-dropzone-label>
+        <ngx-dropzone-label *ngIf="imgSrc">
+            <img [src]="imgSrc" class="w-50" alt="">
+          </ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+         class="dowmload  w-100 opacity-100"  [removable]="true" (removed)="onRemove(f)">
+        </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+</div>    
+<div class="d-flex justify-content-end gap-2 my-4">
+<button class="outline-primary" type="button" routerLink="/dashboard/user/user-recipes">Cancel</button>
+</div>          
+
+           </div>               
+        </div>            
+    </form>
+
+</div>
+</section>
+ -->

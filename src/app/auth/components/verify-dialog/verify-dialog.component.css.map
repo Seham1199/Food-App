@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "verify-dialog.component.scss"
+    ],
+    "names": [],
+    "file": "verify-dialog.component.css"
+}

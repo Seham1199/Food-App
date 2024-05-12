@@ -1,0 +1,17 @@
+.sidebar {
+  border-top-right-radius: 50px;
+}
+
+.sidebar .item {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 7px;
+  margin: 10px 0px;
+}
+
+.sidebar .item span {
+  margin: 0px 5px;
+}
+/*# sourceMappingURL=sidebar.component.css.map */

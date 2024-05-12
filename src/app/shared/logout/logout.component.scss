@@ -1,0 +1,18 @@
+.danger{
+    background-color: #bb2124;
+    color: #fff;
+    &:hover{
+        background-color: #F0FFEF;
+        border: 1px solid #bb2124;
+        color: #bb2124;
+}
+}
+.outline-danger{
+    color: #bb2124;
+    border: 1px solid #bb2124;
+    background-color: #fff;
+    &:hover{
+        color: #F0FFEF;
+        background-color: #bb2124;
+    }
+}

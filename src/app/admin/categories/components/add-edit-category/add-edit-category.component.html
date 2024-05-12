@@ -1,0 +1,24 @@
+
+<div class="category-content ">
+  <div class="d-flex justify-content-between m-2">
+    <img src="../../.././../../assets/images/4 4.svg" class="cat-img" alt="" srcset="">
+    <a (click)="onNoClick()" role="button" class="cat-icon"><i class="fa-solid fa-xmark-circle fa-2x "></i></a>
+  </div>
+<h1 mat-dialog-title>
+  <span *ngIf="categoryName==''">Add</span>
+      <span *ngIf="categoryName!==''">Edit</span>
+       Category
+</h1>
+<div mat-dialog-content class="">
+<p class="mb-2">What's your favorite food?</p>
+<mat-form-field class="mdc-text-field--outlined overflow-hidde w-100 my-3" appearance="outline">
+<mat-label class="labelIn">Category Name</mat-label>
+<input matInput [(ngModel)]="categoryName">
+</mat-form-field>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-end px-3">
+<button class="primary text-white fw-medium fs-6" mat-button [mat-dialog-close]="categoryName" cdkFocusInitial>Save</button>
+</div>
+
+</div>
+          

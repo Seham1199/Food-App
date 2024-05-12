@@ -1,0 +1,15 @@
+<section class="dashboard">
+      <div class="container-fluid ps-0">
+        <div class="row opened">
+            <div [class]="sideBar?.isOpened?'col-2':'col-1'" class="px-0">
+                <app-sidebar></app-sidebar>
+            </div>
+            <div [class]="sideBar?.isOpened?'col-10 ':'col-11 '" class="px-4">
+                <div class="sticky">
+                    <app-navbar></app-navbar>
+                </div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+.navbar {
+  border-radius: 16px;
+}
+
+.navbar .input-group {
+  border-radius: 8px;
+}
+
+.navbar .input-group ::-webkit-input-placeholder {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F263E;
+  opacity: 24.78%;
+}
+
+.navbar .input-group :-ms-input-placeholder {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F263E;
+  opacity: 24.78%;
+}
+
+.navbar .input-group ::-ms-input-placeholder {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F263E;
+  opacity: 24.78%;
+}
+
+.navbar .input-group ::placeholder {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F263E;
+  opacity: 24.78%;
+}
+
+.navbar .input-group .form-control {
+  padding: .275rem;
+}
+
+.navbar .input-group i {
+  color: #1F263E;
+  font-size: 16px;
+}
+
+.navbar .dropdown .nav-link {
+  color: #1F384C;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0;
+}
+
+.navbar .dropdown span {
+  font-size: 12.7px;
+  color: #335b7c;
+}
+
+.navbar span i {
+  color: #1F263E;
+  font-size: 20px;
+}
+/*# sourceMappingURL=navbar.component.css.map */

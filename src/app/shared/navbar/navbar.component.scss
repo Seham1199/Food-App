@@ -1,0 +1,78 @@
+.text-main{
+  color: #009247;
+}
+.navbar{
+    border-radius: 16px;
+    .user-img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+    .user-avater{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  .input-group{
+    border-radius: 8px;
+    ::placeholder{
+        font-size: 15px;
+        font-weight: 500;
+        color: #1F263E;
+        opacity: 24.78%;
+    }
+    .form-control{
+        padding: .275rem;
+    }
+    i{
+        color: #1F263E;
+        font-size: 16px;
+    }
+  }
+  .dropdown{
+    .dropdown-toggle::after{
+      display: none;
+    }
+    .btn{
+        background-color: rgba(248, 249, 251, 1);
+        border: none;
+        color: #1E232C;
+        padding: 0;
+    }
+}
+  span{
+    i{
+        color: #1F263E;
+        font-size: 20px;
+    }
+  }
+}
+
+.sticky-nav {
+  position: sticky;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.light-bg-nav{
+  background-color: #f8f9fb;
+}
+.dark-bg-nav {
+  background-color: #1F263E; /* Change to your desired dark color */
+  color: #f8f9fb;
+}
+.text-light-nav{
+  color: #f8f9fb;
+}
+.text-dark-nav{
+  color: black;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+  color: #009247;
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav .dropdown-menu {
+      position: absolute;
+      left: -43px;
+  }
+}
