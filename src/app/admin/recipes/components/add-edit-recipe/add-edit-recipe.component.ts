@@ -65,14 +65,14 @@ this.disableFormControls();
       },error:(err)=>{
 console.log(err)
       },complete:()=>{
-        this.imgSrc = this.imgUrl + this.recipeData?.imagePath;
+       // this.imgSrc = this.imgUrl + this.recipeData?.imagePath;
         this.recipeForm.patchValue({
           name:this.recipeData?.name,
           price:this.recipeData?.price,
           tagId:this.recipeData?.tag.id,
           categoriesIds:this.recipeData?.category[0].id,
           description:this.recipeData?.description,
-          
+          recipeImage:this.recipeData?.imagePath
         }); 
       }
     })
@@ -87,8 +87,8 @@ myData.append('description' , data.value.description);
 myData.append('price' , data.value.price);
 myData.append('tagId' , data.value.tagId);
 myData.append('categoriesIds' , data.value.categoriesIds);
-myData.append('recipeImage' , this.imgSrc , this.imgSrc.name);
-//myData.append('recipeImage' , this.imgSrc)
+myData.append('recipeImage' , data.value.imagePath)
+// myData.append('recipeImage' , this.imgSrc , this.imgSrc.name);
 
    if (this.recipeId) {
    this.edit(this.recipeId , myData)

@@ -30,7 +30,7 @@ export class LoadingInterceptor implements HttpInterceptor {
 
   }
 }
-function interval(arg0: number) {
-  throw new Error('Function not implemented.');
-}
+// function interval(arg0: number) {
+//   throw new Error('Function not implemented.');
+// }
 

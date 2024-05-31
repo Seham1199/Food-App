@@ -11,11 +11,11 @@ export class AppComponent implements OnInit {
 
  ngOnInit() {
   /** spinner starts on init */
-  this.spinner.show();
+  // this.spinner.show();
 
-  setTimeout(() => {
-    /** spinner ends after 5 seconds */
-    this.spinner.hide();
-  }, 3000);
+  // setTimeout(() => {
+  //   /** spinner ends after 5 seconds */
+  //   this.spinner.hide();
+  // }, 3000);
 }
 }
